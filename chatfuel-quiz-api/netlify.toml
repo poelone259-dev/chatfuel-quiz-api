@@ -1,0 +1,3 @@
+[build]
+  # Netlify Functions တွေက ဘယ် folder ထဲမှာ ရှိတယ်ဆိုတာ သတ်မှတ်ပါတယ်။
+  functions = "functions"
