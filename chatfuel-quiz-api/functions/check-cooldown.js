@@ -29,6 +29,12 @@ exports.handler = async (event, context) => {
   // Chatfuel က ပို့လိုက်တဲ့ Parameters တွေကို event.queryStringParameters ကနေ ယူရမည်။
   const { last_time, cooldown } = event.queryStringParameters;
   
+  if (!last_time || !cooldown) {
+    // ဤနေရာတွင် Log တစ်ခုခု ထုတ်ပြီး Chatfuel ကို JSON Error ပြန်ပို့သင့်သည်။
+    console.error("Missing required parameters!");
+    return { statusCode: 400, body: JSON.stringify({ error: "Missing parameters from Chatfuel." }) };
+  }
+  
   const lastPlayedTimeString = last_time; 
   const cooldownSeconds = parseInt(cooldown || '3600', 10); 
 
@@ -77,4 +83,5 @@ exports.handler = async (event, context) => {
     },
     body: JSON.stringify(responseData)
   };
+
 };
