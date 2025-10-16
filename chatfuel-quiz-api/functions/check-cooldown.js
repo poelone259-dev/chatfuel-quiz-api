@@ -10,14 +10,14 @@ function formatTime(seconds) {
   
   let output = "";
   if (hours > 0) {
-    output += `${hours} နာရီ `;
+    output += `${hours} hours `;
   }
   if (minutes > 0) {
-    output += `${minutes} မိနစ်`;
+    output += `${minutes} minutes`;
   }
   
   if (output === "") {
-      return "စက္ကန့်ပိုင်း";
+      return "seconds";
   }
 
   return output.trim();
@@ -85,3 +85,4 @@ exports.handler = async (event, context) => {
   };
 
 };
+
